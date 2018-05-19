@@ -93,28 +93,29 @@ export default {
 <style lang='stylus' scoped>
 @import '~styles/varibles.styl'
 @import '~styles/mixins.styl'
-
+.swiper-pagination{
+  position relative
+  bottom 0
+}
 .home-icons {
   overflow: hidden
   width: 100%
-  height: 190px
-
+  height: 3.6rem
+  background-color $bgColorWhite
+  box-sizing border-box
   .icon {
     float left
     width 25%
-    height 25%;
+    height 50%;
     text-align center
 
     div {
-      height 80%
       padding-top 0.15rem
       box-sizing border-box
-
       img {
-        width 55%
+        width 1.1rem
       }
     }
-
     .icon-text {
       line-height 0.3rem
       color $textColor
