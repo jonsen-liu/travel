@@ -8,7 +8,7 @@
     </div>
     <div class="like-body">
       <ul>
-        <li v-for="item of list" :key="item.id">
+        <li v-for="item of youLike" :key="item.id">
           <div class="list-left">
             <div class="list-img-title list-img-title-urlhuang" v-if="item.titleText==0">
               即买即用
@@ -36,36 +36,19 @@
       </ul>
     </div>
     <div class="like-foot">
-      <a href="www.haidu.com">查看所有产品</a>
+      <a href="http://www.haidu.com">查看所有产品</a>
     </div>
   </div>
 </template>
 <script>
 export default {
   name: 'youLike',
+  props: {
+    youLike: Array
+  },
   data: function () {
     return {
-      list: [
-        {
-          id: '00001',
-          imgUrl: 'http://img1.qunarzz.com/sight/p0/1707/ab/abb70c851caaa6d8a3.img.jpg_200x200_b902dd9e.jpg',
-          titleText: 0,
-          title: '长隆水上乐园',
-          xinxin: 4,
-          pinglun: 24965,
-          money: 96.7,
-          site: '广州长隆'
-        }, {
-          id: '00002',
-          imgUrl: 'http://img1.qunarzz.com/sight/p0/1805/f6/f65914357903b096a3.img.jpg_200x200_2c394f76.jpg',
-          titleText: 0,
-          title: '正佳自然科学博物馆',
-          xinxin: 0,
-          pinglun: 0,
-          money: 50,
-          site: '天河区'
-        }
-      ]
+      list: []
     }
   },
   computed: {
