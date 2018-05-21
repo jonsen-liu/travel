@@ -63,4 +63,7 @@ export default {
 </script>
 
 <style lang='stylus' scoped>
+@import '~styles/varibles.styl'
+.home
+  background-color $homebgcolor
 </style>
