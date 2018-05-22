@@ -7,6 +7,10 @@ yarn-error.log*
 /test/unit/coverage/
 /test/e2e/reports/
 selenium-debug.log
+<<<<<<< HEAD
+=======
+
+>>>>>>> fd338ae1d281464ff378ddbcc422c85b90733807
 
 # Editor directories and files
 .idea
