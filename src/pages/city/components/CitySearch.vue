@@ -5,7 +5,10 @@
     </div>
     <div class="search-content" ref="search" v-show="keydata">
       <ul>
-        <li class="search-list border-bottom" v-for="item of list" :key="item.id">{{item.name}}</li>
+        <li class="search-list border-bottom"
+         v-for="item of list"
+         :key="item.id"
+         @click="searchClick(item.name)">{{item.name}}</li>
         <li class="search-list border-bottom" v-show="showHint">没有数据显示</li>
       </ul>
     </div>
@@ -13,6 +16,7 @@
 </template>
 <script>
 import Bscroll from 'better-scroll'
+import { mapMutations } from 'vuex'
 export default {
   name: 'CitySearch',
   props: {
@@ -30,9 +34,6 @@ export default {
       const showHint = !this.list.length
       return showHint
     }
-  },
-  mounted () {
-    this.scroll = new Bscroll(this.$refs.search)
   },
   watch: {
     keydata () {
@@ -53,6 +54,17 @@ export default {
         this.list = result
       }, 100)
     }
+  },
+  methods: {
+    searchClick (city) {
+      // this.$store.commit('changeCity', city)
+      this.changeCity(city)
+      this.$router.push('/')
+    },
+    ...mapMutations(['changeCity'])
+  },
+  mounted () {
+    this.scroll = new Bscroll(this.$refs.search)
   }
 }
 </script>
