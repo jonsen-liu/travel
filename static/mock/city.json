@@ -2,13 +2,10 @@
 	"ret": true,
 	"data":{
 		"hotCities": [{
-<<<<<<< HEAD
 			"id": 0,
 			"spell": "guangzhou",
 			"name": "广州"
 		}, {
-=======
->>>>>>> fd338ae1d281464ff378ddbcc422c85b90733807
 			"id": 1,
 			"spell": "beijing",
 			"name": "北京"
