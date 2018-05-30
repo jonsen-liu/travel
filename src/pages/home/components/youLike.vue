@@ -8,7 +8,12 @@
     </div>
     <div class="like-body">
       <ul>
-        <li v-for="item of youLike" :key="item.id">
+        <router-link
+        tag="li"
+        v-for="item of youLike"
+        :key="item.id"
+        :to="'/details/' + item.id"
+        >
           <div class="list-left">
             <div class="list-img-title list-img-title-urlhuang" v-if="item.titleText==0">
               即买即用
@@ -31,8 +36,9 @@
               <span class="money-text"><i>￥</i><em v-text="item.money"></em></span>起
               <span class="bottom-text" v-text="item.site"></span>
             </div>
+            <div class="hot-title" v-if="item.hotTitle" v-text="item.hotTitle"></div>
           </div>
-        </li>
+        </router-link>
       </ul>
     </div>
     <div class="like-foot">
@@ -50,17 +56,6 @@ export default {
     return {
       list: []
     }
-  },
-  computed: {
-  //   xinxins () {
-  //     var lists = this.list;
-  //     const xinxin = []
-  //     for (var i = 0; i < lists.length; i++){
-  //       for(var k = 0; k < lists[i].xinxin; k++){
-
-  //       }
-  //     }
-  //   }
   }
 }
 </script>
@@ -98,7 +93,6 @@ export default {
       padding-left .3rem
       li{
         overflow hidden
-        height 2.4rem
         padding .2rem 0
         border-bottom 1px solid $homebgcolor
         box-sizing border-box
@@ -123,6 +117,7 @@ export default {
         .list-right{
           overflow hidden
           .list-right-title{
+            color #212121
             font-size .32rem
             padding-top .3rem
           }
@@ -157,6 +152,14 @@ export default {
               margin-right .3rem
               ellipsis()
             }
+          }
+          .hot-title{
+            float left
+            color #f55
+            background-color #fff9f9
+            margin-top .2rem
+            padding .1rem
+            font-size .24rem
           }
         }
       }

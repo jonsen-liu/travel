@@ -6,7 +6,11 @@
     </p>
     <div class="hot-body">
       <ul>
-        <li v-for="item of Hot" :key="item.id">
+        <router-link
+        tag="li"
+        v-for="item of Hot"
+        :key="item.id"
+        :to="'/details/' + item.id">
           <div>
             <div class="hot-top" v-if="item.top">
               <img :src="item.top">
@@ -15,7 +19,7 @@
           </div>
           <p v-text="item.title"></p>
           <p><i>￥</i><u v-text="item.money"></u>起</p>
-        </li>
+        </router-link>
       </ul>
     </div>
   </div>
