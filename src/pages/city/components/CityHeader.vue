@@ -13,19 +13,17 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-@import '~styles/varibles.styl';
-.city-header{
+@import '~styles/varibles.styl'
+.city-header
   position relative
   line-height .86rem
   background $bgColor
   color #fff
   text-align center
   font-size .32rem
-  .header-back{
+  .header-back
     position absolute
     width 1rem
     text-align center
     color #fff
-  }
-}
 </style>
