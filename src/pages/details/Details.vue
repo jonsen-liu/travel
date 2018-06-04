@@ -43,12 +43,10 @@ export default {
     },
     getDetailsSucc (res) {
       res = res.data.data
-      console.log(res)
       this.sightName = res.sightName
       this.bannerImg = res.bannerImg
       this.gallaryImgs = res.gallaryImgs
       this.list = res.categoryList
-      console.log(res.gallaryImgs)
     }
   },
   mounted () {

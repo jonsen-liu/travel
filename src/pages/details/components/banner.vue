@@ -10,17 +10,23 @@
         {{this.sightName}}
       </div>
     </div>
-    <common-gallery v-show="galleryShow" @galleryclick="galleryClick" :imgs="gallaryImgs"></common-gallery>
+    <fade-animation>
+      <common-gallery
+      v-show="galleryShow"
+      @galleryclick="galleryClick"
+      :imgs="gallaryImgs"></common-gallery>
+    </fade-animation>
   </div>
 </template>
 
 <script>
-// import { mapState } from 'vuex'
 import commonGallery from 'common/gallery/Gallery'
+import FadeAnimation from 'common/fade/FadeAnimation'
 export default {
   name: 'detailBanner',
   components: {
-    commonGallery
+    commonGallery,
+    FadeAnimation
   },
   props: {
     sightName: String,
@@ -29,8 +35,7 @@ export default {
   },
   data () {
     return {
-      galleryShow: false,
-      imgs: []
+      galleryShow: false
     }
   },
   methods: {
