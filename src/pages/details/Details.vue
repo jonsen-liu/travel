@@ -49,7 +49,7 @@ export default {
       this.list = res.categoryList
     }
   },
-  mounted () {
+  activated () {
     this.getDetailsInfo()
   }
 }

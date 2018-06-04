@@ -25,6 +25,7 @@ export default {
   },
   methods: {
     scrollTop () {
+      console.log(123)
       let top = document.documentElement.scrollTop
       if (top > 50) {
         this.isShow = false
