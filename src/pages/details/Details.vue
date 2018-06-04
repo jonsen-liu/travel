@@ -1,7 +1,12 @@
 <template>
   <div class="details">
-    <detail-banner></detail-banner>
+    <detail-banner
+    :sightName="sightName"
+    :bannerImg="bannerImg"
+    :gallaryImgs="gallaryImgs">
+    </detail-banner>
     <detail-header></detail-header>
+    <detail-list :list="list"></detail-list>
     <div class="center">
 
     </div>
@@ -11,12 +16,43 @@
 <script>
 import detailBanner from './components/Banner'
 import detailHeader from './components/Header'
-// import { mapState } from 'vuex'
+import detailList from './components/List'
+import axios from 'axios'
 export default {
   name: 'Details',
   components: {
     detailBanner,
-    detailHeader
+    detailHeader,
+    detailList
+  },
+  data () {
+    return {
+      sightName: '',
+      bannerImg: '',
+      gallaryImgs: [],
+      list: []
+    }
+  },
+  methods: {
+    getDetailsInfo () {
+      axios.get('./static/mock/detail.json', {
+        params: {
+          id: this.$route.params.id
+        }
+      }).then(this.getDetailsSucc)
+    },
+    getDetailsSucc (res) {
+      res = res.data.data
+      console.log(res)
+      this.sightName = res.sightName
+      this.bannerImg = res.bannerImg
+      this.gallaryImgs = res.gallaryImgs
+      this.list = res.categoryList
+      console.log(res.gallaryImgs)
+    }
+  },
+  mounted () {
+    this.getDetailsInfo()
   }
 }
 </script>

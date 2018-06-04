@@ -1,16 +1,16 @@
 <template>
   <div>
     <div class="banner" @click="bannerClick">
-      <img src="https://img1.qunarzz.com/sight/p0/1707/ab/abb70c851caaa6d8a3.img.jpg_600x330_af719163.jpg">
+      <img :src="bannerImg">
       <div class="banner-title">
         <div class="banner-icone">
           <span class="iconfont">&#xe605;</span>
-          47
+          {{this.gallaryImgs.length}}
         </div>
-        长隆水上乐园(AAAAA景区)
+        {{this.sightName}}
       </div>
     </div>
-    <common-gallery v-show="galleryShow" @galleryclick="galleryClick" :imgs="imgs"></common-gallery>
+    <common-gallery v-show="galleryShow" @galleryclick="galleryClick" :imgs="gallaryImgs"></common-gallery>
   </div>
 </template>
 
@@ -22,14 +22,15 @@ export default {
   components: {
     commonGallery
   },
+  props: {
+    sightName: String,
+    bannerImg: String,
+    gallaryImgs: Array
+  },
   data () {
     return {
       galleryShow: false,
-      imgs: [
-        'http://img1.qunarzz.com/sight/p0/1707/ab/abb70c851caaa6d8a3.img.jpg_r_800x800_f1e628fe.jpg',
-        'http://img1.qunarzz.com/sight/p0/1707/ee/ee7ddb170be69716a3.img.jpg_r_800x800_f0ad7d83.jpg',
-        'http://img1.qunarzz.com/sight/p0/1707/33/33d47d55bbab5c84a3.img.jpg_r_800x800_a9489697.jpg'
-      ]
+      imgs: []
     }
   },
   methods: {
